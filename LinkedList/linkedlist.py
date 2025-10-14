@@ -38,7 +38,7 @@ def main():
     for i in range(n):
         num = int(input(f"Enter node {i+1}:"))
         l1.createLinkedList(num)
-    print("Linked List Elements:")
+    print("Linked List Elements :")
     l1.display()
 
 if __name__ == "__main__":
