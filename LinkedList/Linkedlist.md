@@ -3,8 +3,6 @@
 ## What is This Program?
 This is a simple Python program that creates a **linked list** - a way to store a collection of numbers where each number knows where to find the next number.
 
-Think of it like a treasure hunt where each clue leads you to the next one!
-
 ## What is a Linked List?
 Imagine a chain where each link is connected to the next one:
 
@@ -25,7 +23,7 @@ Imagine a chain where each link is connected to the next one:
 
 1. Asks you how many numbers you want to store
 2. Lets you enter each number one by one
-3. Creates a chain (linked list) with all your numbers
+3. Creates a linked list with all your numbers
 4. Shows you all the numbers in order
 
 ## Understanding the Code
