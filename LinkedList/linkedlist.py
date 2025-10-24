@@ -7,39 +7,98 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def createLinkedList(self,value):
-        """Add a new node with given value at the end of the linked list."""
-        node = Node(value)
+    # Add a node at the end
+    def append(self, value):
+        new_node = Node(value)
         if self.head is None:
-            self.head = node
-
+            self.head = new_node
         else:
-            curr = self.head
-            while curr.next is not None:
-                curr = curr.next
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = new_node
 
-            curr.next = node
-
+    # Display the list
     def display(self):
-        """Print all elements of the linked list."""
-        curr = self.head
+        temp = self.head
+        while temp:
+            print(temp.value, "->", end=" ")
+            temp = temp.next
+        print("None")
 
-        if curr is None:
-            print("Linked list is empty")
+    def insert_front(self,value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
+# 1 2 3 4 
+    
+    def insert_at(self,value,pos):
+        new_node = Node(value)
+        temp = self.head
+
+        if not temp or pos == 0:
+            new_node.next = self.head
+            self.head = new_node
+            return 
 
         else:
-            while curr is not None:
-                print(curr.value)
+            count = 0
+            while pos - 1 > count and temp is not None :
+                temp = temp.next
+                count += 1
+
+            if temp is None:
+                print("Position out of bounds")
+            new_node.next = temp.next
+            temp.next = new_node
+
+    def delete(self,value):
+        temp = self.head
+
+        if temp is None:
+            print("List is empty")
+            return
+
+        if temp.value == value:
+            self.head = temp.next
+            return
+
+        prev = None
+        while temp.value != value:
+            prev = temp
+            temp = temp.next
+        if temp is None:
+            print("Value not found")
+            return 
+
+        prev.next = temp.next
+
+    def delete_duplicate(self , value):
+        dummy = Node(0)
+        dummy.next = self.head
+        curr = dummy
+        
+        while curr.next != None:
+            if curr.next.value == value:
+                curr.next = curr.next.next
+            
+            else:
                 curr = curr.next
 
+        self.head = dummy.next
+        
+        
 def main():
-    l1 = LinkedList()
-    n = int(input("Enter the number of nodes you want to enter:"))
-    for i in range(n):
-        num = int(input(f"Enter node {i+1}:"))
-        l1.createLinkedList(num)
-    print("Linked List Elements :")
-    l1.display()
+    ll = LinkedList()
+    n = int(input("Enter the number of elements: "))
+    for _ in range(n):
+        element = int(input("Enter element: "))
+        ll.append(element)
 
+    print("\nLinked List:")
+    ll.display()
+    ll.delete_duplicate(7)
+    ll.display()
 if __name__ == "__main__":
     main()
