@@ -5,10 +5,14 @@ class Tree:
         self.right = None
 
 def Same_Tree(p,q):
-    if not p or not q:
-        return p == q
+    if not p or not q: # First we are checking if the nodes exist or not  
+        return p == q  # 
 
-    return p.val == q.val and Same_Tree(p.left,q.left) and Same_Tree(p.right,q.right)
+                            # (i)   P:None and Q:None
+                            # (ii)  P:not None and Q:None
+                            # (iii) P:None and Q: not None
+
+    return p.val == q.val and Same_Tree(p.left,q.left) and Same_Tree(p.right,q.right) # if both nodes exists , we check the value and go call the other nodes recursively
 
 def main():
     root1 = Tree(10)
@@ -27,3 +31,18 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
