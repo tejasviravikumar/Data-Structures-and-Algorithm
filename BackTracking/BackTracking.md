@@ -1,0 +1,19 @@
+**BackTracking Template by Bitflip**
+```
+def backtrack(params):
+    if base_case_condition:
+        results.append(copy_of_solution)
+        return
+    for choice in choices:
+        if violates_constraints:
+            continue
+        
+        make_choice
+        backtrack(updated_params)
+        undo_choice
+
+```
+**choices**
+**Constraints**
+**base case**
+**Backtrack step**
