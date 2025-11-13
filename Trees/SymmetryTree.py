@@ -4,11 +4,12 @@ class Tree:
         self.left = None
         self.right = None
 
+# We used the same logic as the Same_Tree.py 
 def Helper(Lnode , Rnode):
     if not Lnode and not Rnode:
         return Lnode == Rnode
 
-    return Lnode.val == Rnode.val and Helper(Lnode.left,Rnode.right) and Helper(Lnode.right,Rnode.left)
+    return Lnode.val == Rnode.val and Helper(Lnode.left,Rnode.right) and Helper(Lnode.right,Rnode.left) # Here we have called the left node's left and then the right node' right and vice-versa cause we are checking the symmetry
 
 def Symmetry(root):
     return Helper(root.left,root.right)
